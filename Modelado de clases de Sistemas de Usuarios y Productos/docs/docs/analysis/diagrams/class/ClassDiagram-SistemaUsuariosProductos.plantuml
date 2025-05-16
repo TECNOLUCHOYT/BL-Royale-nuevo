@@ -1,0 +1,40 @@
+@startuml
+class User {
+  - ID: int
+  - Nombre: string
+  - Email: string
+  - Password: string
+  - Activo: bool
+  + Login(password: string): bool
+  + UpdateProfile(nombre: string, email: string): void
+}
+
+class Admin {
+  - ID: int
+  - Nombre: string
+  - Email: string
+  - Password: string
+  + AgregarProducto(p: Product): void
+}
+
+class Product {
+  - ID: int
+  - Nombre: string
+  - Descripcion: string
+  - Precio: float
+  - Disponible: bool
+}
+
+class Cart {
+  - ID: int
+  - UsuarioID: int
+  - Productos: list<Product>
+  + AgregarProducto(p: Product): void
+  + Vaciar(): void
+  + Comprar(): bool
+}
+
+Cart --> "1" User
+Admin --> "1..*" Product
+Cart --> "*" Product
+@enduml
