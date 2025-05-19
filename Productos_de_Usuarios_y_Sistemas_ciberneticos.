@@ -1,66 +1,84 @@
+Resumen del Proyecto: API REST con Go
 1. API REST
-Para esta evaluación, hemos elegido el lenguaje Go (Golang)Debihabitual y los productos cibernéticos.
-
-Puntos finales:
-
-- POST /usuarios: Crea un nuevo usuario en el sistema.
-- OBTENER /usuarios/{id} :
-- PUT /usuarios/{id}: Actualiza los datos de un usuario existente.
-- ELIMINAR /usuario:Mi mano.
-- PUBLICACIÓN /p: Crea un nuevo producto cibernético.
-- GET /productos: Obtiene la lista de todos los productos cibernéticos.
-- OBTENER /pro: Recupera los detalles de un producto específico.
-- PUT /productos/{id}: Actualiza la información de un producto cibernético.
-- DELETE /productos/{id}: Eliminar.
-
-2. CRUD Completo
-El sistema implementa un CRUD c tanto para usuarios como para productos cibernéticos. Este ciclo de operaciones garantiza que los datos puedan ser gestionados adecuadamente durante su ciclo de vida en el sistema. 
-Cada operación CRUD está asociada a un endpoint en la API RESTful y requiere de validaciones y respuestas claras para asegurar la integridad de la información.
+Se desarrolló una API RESTful en Golang para gestionar usuarios y productos cibernéticos. Los principales endpoints son:
 
 Usuarios:
-El sistema permitirá crear nuevos usuarios, gestionar su información, actualizarla y eliminarla cuando sea necesario. Esto incluye la validación de datos como correo electrónico, 
-nombre, contraseñas seguras, etc.
+
+POST /usuarios: Crear usuario.
+
+GET /usuarios/{id}: Obtener usuario por ID.
+
+PUT /usuarios/{id}: Actualizar usuario.
+
+DELETE /usuarios/{id}: Eliminar usuario.
 
 Productos Cibernéticos:
-Los productos serán gestionados de forma similar, permitiendo que se puedan agregar, actualizar y eliminar productos de tipo cibernético, como software, servicios en línea, suscripciones, entre otros.
-Cada producto tendrá un conjunto de atributos como nombre, descripción, precio, entre otros.
 
-3. Autenticación
-La autenticación es una parte crítica del sistema para garantizar que solo los usuarios autorizados puedan interactuar con la API. En este proyecto, hemos implementado un sistema de autenticación
-basado en JSON Web Tokens (JWT), lo que permite que los usuarios se autentiquen al iniciar sesión con su correo electrónico y contraseña. Una vez autenticados, el cliente web recibe un token JWT que se
-incluye en las solicitudes subsecuentes para garantizar que el usuario esté autorizado para realizar las operaciones solicitadas.
+POST /productos: Crear producto.
 
-Flujo de Autenticación:
-- El usuario envía una solicitud POST a /auth/login con sus credenciales (correo y contraseña).
-- Si las credenciales son correctas, el servidor devuelve un JWT.
-- El cliente web almacena este token y lo incluye en las cabeceras de las solicitudes futuras como un Bearer Token.
-- El servidor valida el token antes de permitir el acceso a los recursos protegidos.
+GET /productos: Listar todos los productos.
+
+GET /productos/{id}: Obtener producto específico.
+
+PUT /productos/{id}: Actualizar producto.
+
+DELETE /productos/{id}: Eliminar producto.
+
+2. CRUD Completo
+La API permite realizar operaciones CRUD completas tanto para usuarios como para productos.
+Incluye validaciones como:
+
+Para usuarios: correo, nombre, contraseña segura.
+
+Para productos: nombre, descripción, precio, etc.
+
+3. Autenticación con JWT
+Se implementó autenticación con JSON Web Tokens (JWT).
+Flujo de autenticación:
+
+El usuario inicia sesión con POST /auth/login.
+
+Si es exitoso, recibe un token JWT.
+
+El token se envía en las cabeceras de futuras solicitudes como Bearer Token.
+
+El servidor valida el token para autorizar el acceso.
 
 4. Cliente Web con Web Components
-Para la interfaz de usuario, hemos utilizado Web Components, una tecnología moderna que permite crear elementos reutilizables y encapsulados dentro de la aplicación web. Esto mejora la modularidad y 
-la mantenibilidad del proyecto.
+El frontend utiliza Web Components, permitiendo modularidad y reutilización.
 
-Funcionalidades del Cliente Web:
-- Registro y Login: El cliente web permite que los usuarios se registren y se autentiquen usando su correo electrónico y contraseña. El formulario de login valida las credenciales y gestiona
-la respuesta del servidor con el token JWT.
-- GRAMO A través de componentes web específicos, los usuarios pueden ver, editar o eliminar sus datos. Estos componentes permiten interactuar con los endpoints de la API para realizar las operaciones CRUD.
-- Gestión de Productos: Similar a la gestión de usuarios, los componentes web permiten agregar, actualizar y eliminar productos cibernéticos. Cada producto es representado mediante un componente que permite
-visualizar todos los detalles y realizar las modificaciones necesarias.
+Funcionalidades del cliente:
 
-Componente: 
+Registro e inicio de sesión.
 
-<login-form>:Comp
-<user-form>:Componer
-<product-form>:C
-<product-list>: Componente para listar los productos disponibles en el sistema.
+Gestión de usuarios (ver, editar, eliminar).
+
+Gestión de productos (agregar, modificar, eliminar).
+
+Componentes:
+
+<login-form>: Autenticación.
+
+<user-form>: Gestión de usuarios.
+
+<product-form>: Gestión de productos.
+
+<product-list>: Lista de productos.
 
 5. Tecnologías Utilizadas
-- Backend (API RESTful):
-- GRAMO: Cuando
-- Ginebra/Goril: Marcos
-- JWT (JSON W: Método para autenticar y autorizar a los usuarios.
-- PostgreSQL: Base de datos relacional para almacenar los datos de usuarios y productos.
-- Frontend (Cliente Web)
-- HTML5, CSS3:Tecno
-- Web ¿Qué?:Implementar
-- Buscar: Para realizar las solicitudes HTTP desde el cliente web hacia la API.
+Backend:
+
+Lenguaje: Go (Golang)
+
+Frameworks: Gin o Gorilla
+
+Autenticación: JWT
+
+Base de datos: PostgreSQL
+
+Frontend:
+
+Tecnologías: HTML5, CSS3, Web Components
+
+Comunicación: Fetch API para interactuar con la API
+
