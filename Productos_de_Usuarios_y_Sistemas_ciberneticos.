@@ -61,3 +61,44 @@ Backend:
 - Tecnologías: HTML5, CSS3, Web Components.
 - Comunicación: Fetch API para interactuar con la API.
 
+🧱 Estructura General del Proyecto
+1. Análisis y Diseño
+
+- Documentación (ubicada en docs/):
+- class.md: Contiene el diagrama de clases UML, detallando la relación entre entidades como User, Product, Cart, y Login.
+- usecases.md: Define los casos de uso, identificando las interacciones clave entre los actores (usuarios) y el sistema.
+- Modelado Orientado a Objetos (POO):
+- Se utilizaron principios de encapsulamiento, modularidad y reutilización.
+- El sistema se diseñó con base en clases traducidas a structs en Go.
+
+2. Implementación en Go
+
+- Carpeta principal de módulos: modules/
+- user.go: Define la estructura de un usuario, junto con sus métodos para gestión y validación.
+- login.go: Maneja la autenticación y validación de credenciales.
+- product.go: Describe los productos cibernéticos disponibles en el sistema.
+- cart.go: Implementa la lógica para agregar productos al carrito, eliminarlos y calcular el total.
+- Cada módulo representa una entidad del sistema y permite una fácil extensión y mantenimiento.
+
+3. Funcionamiento del Sistema
+
+- Los usuarios pueden:
+- Registrarse y autenticarse.
+- Ver productos digitales disponibles.
+- Agregar productos a su carrito.
+- Ver y modificar el contenido del carrito.
+- Se contemplan aspectos como validación de datos, encapsulamiento de lógica de negocio y persistencia simulada (en versiones futuras
+se puede agregar una base de datos).
+
+🛠️ Tecnologías Utilizadas
+
+- Lenguaje de Programación: Go (Golang)
+- Paradigma: Programación Orientada a Objetos (usando structs y métodos)
+- Documentación: Markdown (.md), diagramas UML y descripciones funcionales
+
+🔚 En Conclusión:
+El sistema "Productos de Usuarios y Productos Cibernéticos" ofrece una base sólida y modular para la gestión de 
+usuarios y productos digitales.
+Es escalable, mantenible ypuede ser fácilmente extendido para integrar funcionalidades avanzadas como pagos en línea, historial 
+de compras y gestión de licencias.
+
