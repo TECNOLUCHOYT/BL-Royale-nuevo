@@ -1,0 +1,85 @@
+📁 modules/product/product.go
+📌 Estructura para el manejo CRUD de productos cibernéticos.
+
+go
+Copiar
+Editar
+package product
+
+import (
+	"errors"
+)
+
+// Product representa un producto digital o cibernético.
+type Product struct {
+	ID          int     `json:"id"`
+	Name        string  `json:"name"`
+	Description string  `json:"description"`
+	Price       float64 `json:"price"`
+}
+
+var Products = []Product{}
+var nextID = 1
+
+// CrearProducto agrega un nuevo producto.
+func CrearProducto(name, desc string, price float64) Product {
+	prod := Product{
+		ID:          nextID,
+		Name:        name,
+		Description: desc,
+		Price:       price,
+	}
+	Products = append(Products, prod)
+	nextID++
+	return prod
+}
+
+// ListarProductos devuelve todos los productos.
+func ListarProductos() []Product {
+	return Products
+}
+
+// BuscarProducto busca por ID.
+func BuscarProducto(id int) *Product {
+	for _, p := range Products {
+		if p.ID == id {
+			return &p
+		}
+	}
+	return nil
+}
+
+// ActualizarProducto modifica los campos de un producto.
+func ActualizarProducto(id int, name, desc string, price float64) error {
+	for i, p := range Products {
+		if p.ID == id {
+			Products[i].Name = name
+			Products[i].Description = desc
+			Products[i].Price = price
+			return nil
+		}
+	}
+	return errors.New("producto no encontrado")
+}
+
+// EliminarProducto elimina un producto.
+func EliminarProducto(id int) error {
+	for i, p := range Products {
+		if p.ID == id {
+			Products = append(Products[:i], Products[i+1:]...)
+			return nil
+		}
+	}
+	return errors.New("producto no encontrado")
+}
+✅ Resultado:
+Tu estructura modules/ ahora contiene:
+
+plaintext
+Copiar
+Editar
+modules/
+├── user/
+│   └── user.go          👤 Módulo de usuarios (con PasswordHash, Role, CRUD)
+└── product/
+    └── product.go       📦 Módulo de productos cibernéticos (CRUD c
