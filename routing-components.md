@@ -1,7 +1,8 @@
 📄 routing-components.md — Diseño de Ruteo y Componentes Web
-markdown
-Copiar
-Editar
+- markdown
+- Copiar
+- Editar
+- 
 # 🔁 Diseño de Ruteo y Componentes del Cliente Web:
 Este documento describe la estructura de rutas y los componentes utilizados en el cliente web del Sistema de Usuarios y Productos Cibernéticos.
 
