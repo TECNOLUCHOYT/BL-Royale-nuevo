@@ -4,56 +4,41 @@ Se desarrolló una API RESTful en Golang para gestionar usuarios y productos cib
 
 Usuarios:
 
-POST /usuarios: Crear usuario.
+- POST /usuarios: Crear usuario.
+- GET /usuarios/{id}: Obtener usuario por ID.
+- PUT /usuarios/{id}: Actualizar usuario.
+- DELETE /usuarios/{id}: Eliminar usuario.
+- Productos Cibernéticos:
+- POST /productos: Crear producto.
+- GET /productos: Listar todos los productos.
+- GET /productos/{id}: Obtener producto específico.
+- PUT /productos/{id}: Actualizar producto.
+- DELETE /productos/{id}: Eliminar producto.
 
-GET /usuarios/{id}: Obtener usuario por ID.
+2. CRUD Completo: 
 
-PUT /usuarios/{id}: Actualizar usuario.
-
-DELETE /usuarios/{id}: Eliminar usuario.
-
-Productos Cibernéticos:
-
-POST /productos: Crear producto.
-
-GET /productos: Listar todos los productos.
-
-GET /productos/{id}: Obtener producto específico.
-
-PUT /productos/{id}: Actualizar producto.
-
-DELETE /productos/{id}: Eliminar producto.
-
-2. CRUD Completo
 La API permite realizar operaciones CRUD completas tanto para usuarios como para productos.
 Incluye validaciones como:
 
-Para usuarios: correo, nombre, contraseña segura.
-
-Para productos: nombre, descripción, precio, etc.
+- Para usuarios: correo, nombre, contraseña segura.
+- Para productos: nombre, descripción, precio, etc.
 
 3. Autenticación con JWT
 Se implementó autenticación con JSON Web Tokens (JWT).
 Flujo de autenticación:
 
-El usuario inicia sesión con POST /auth/login.
-
-Si es exitoso, recibe un token JWT.
-
-El token se envía en las cabeceras de futuras solicitudes como Bearer Token.
-
-El servidor valida el token para autorizar el acceso.
+- El usuario inicia sesión con POST /auth/login.
+- Si es exitoso, recibe un token JWT.
+- El token se envía en las cabeceras de futuras solicitudes como Bearer Token.
+- El servidor valida el token para autorizar el acceso.
 
 4. Cliente Web con Web Components
 El frontend utiliza Web Components, permitiendo modularidad y reutilización.
 
 Funcionalidades del cliente:
-
-Registro e inicio de sesión.
-
-Gestión de usuarios (ver, editar, eliminar).
-
-Gestión de productos (agregar, modificar, eliminar).
+- Registro e inicio de sesión.
+- Gestión de usuarios (ver, editar, eliminar).
+- Gestión de productos (agregar, modificar, eliminar).
 
 Componentes:
 
@@ -68,17 +53,11 @@ Componentes:
 5. Tecnologías Utilizadas
 Backend:
 
-Lenguaje: Go (Golang)
-
-Frameworks: Gin o Gorilla
-
-Autenticación: JWT
-
-Base de datos: PostgreSQL
-
-Frontend:
-
-Tecnologías: HTML5, CSS3, Web Components
-
-Comunicación: Fetch API para interactuar con la API
+- Lenguaje: Go (Golang).
+- Frameworks: Gin o Gorilla.
+- Autenticación: JWT.
+- Base de datos: PostgreSQL.
+- Frontend:
+- Tecnologías: HTML5, CSS3, Web Components.
+- Comunicación: Fetch API para interactuar con la API.
 
